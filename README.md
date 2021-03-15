@@ -2,4 +2,4 @@
 
 First Chapter of the 6th curriculum [Quality Assurance](https://www.freecodecamp.org/learn/quality-assurance)
 
-[Replit Live app]()
+[Replit Live app](https://Quality-Assurance-and-Testing-with-Chai.teknician.repl.co)
