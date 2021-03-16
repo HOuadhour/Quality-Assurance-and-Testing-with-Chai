@@ -64,22 +64,46 @@ suite("Functional Tests", function () {
 });
 
 const Browser = require("zombie");
+Browser.site =
+  "https://Quality-Assurance-and-Testing-with-Chai.teknician.repl.co";
 
 suite("Functional Tests with Zombie.js", function () {
+  const browser = new Browser();
+
+  suiteSetup(function (done) {
+    return browser.visit("/", done);
+  });
+
   suite('"Famous Italian Explorers" form', function () {
     // #5
     test('submit "surname" : "Colombo" - write your e2e test...', function (done) {
       browser.fill("surname", "Colombo").pressButton("submit", function () {
-        assert.fail();
-
+        browser.assert.element("#name", "Element with name id must exists");
+        browser.assert.element(
+          "#surname",
+          "Element with surname id must exists"
+        );
+        browser.assert.element("#dates", "Element with dates id must exists");
+        browser.assert.text("#name", "Cristoforo");
+        browser.assert.text("#surname", "Colombo");
+        browser.assert.text("#dates", "1451 - 1506");
         done();
       });
     });
     // #6
     test('submit "surname" : "Vespucci" - write your e2e test...', function (done) {
-      assert.fail();
-
-      done();
+      browser.fill("surname", "Vespucci").pressButton("submit", function () {
+        browser.assert.element("#name", "Element with name id must exists");
+        browser.assert.element(
+          "#surname",
+          "Element with surname id must exists"
+        );
+        browser.assert.element("#dates", "Element with dates id must exists");
+        browser.assert.text("#name", "Amerigo");
+        browser.assert.text("#surname", "Vespucci");
+        browser.assert.text("#dates", "1454 - 1512");
+        done();
+      });
     });
   });
 });
