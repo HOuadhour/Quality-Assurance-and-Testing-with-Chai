@@ -78,30 +78,20 @@ suite("Functional Tests with Zombie.js", function () {
     // #5
     test('submit "surname" : "Colombo" - write your e2e test...', function (done) {
       browser.fill("surname", "Colombo").pressButton("submit", function () {
-        browser.assert.element("#name", "Element with name id must exists");
-        browser.assert.element(
-          "#surname",
-          "Element with surname id must exists"
-        );
-        browser.assert.element("#dates", "Element with dates id must exists");
-        browser.assert.text("#name", "Cristoforo");
-        browser.assert.text("#surname", "Colombo");
-        browser.assert.text("#dates", "1451 - 1506");
+        browser.assert.success();
+        browser.assert.text("span#name", "Cristoforo");
+        browser.assert.text("span#surname", "Colombo");
+        browser.assert.element("span#dates", 1);
         done();
       });
     });
     // #6
     test('submit "surname" : "Vespucci" - write your e2e test...', function (done) {
       browser.fill("surname", "Vespucci").pressButton("submit", function () {
-        browser.assert.element("#name", "Element with name id must exists");
-        browser.assert.element(
-          "#surname",
-          "Element with surname id must exists"
-        );
-        browser.assert.element("#dates", "Element with dates id must exists");
-        browser.assert.text("#name", "Amerigo");
-        browser.assert.text("#surname", "Vespucci");
-        browser.assert.text("#dates", "1454 - 1512");
+        browser.assert.success();
+        browser.assert.text("span#name", "Amerigo");
+        browser.assert.text("span#surname", "Vespucci");
+        browser.assert.element("span#dates", 1);
         done();
       });
     });
