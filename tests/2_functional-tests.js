@@ -14,8 +14,8 @@ suite("Functional Tests", function () {
         .request(server)
         .get("/hello")
         .end(function (err, res) {
-          assert.fail(res.status, 200);
-          assert.fail(res.text, "hello Guest");
+          assert.equal(res.status, 200);
+          assert.equal(res.text, "hello Guest");
           done();
         });
     });
@@ -54,7 +54,6 @@ suite("Functional Tests", function () {
 const Browser = require("zombie");
 
 suite("Functional Tests with Zombie.js", function () {
-
   suite('"Famous Italian Explorers" form', function () {
     // #5
     test('submit "surname" : "Colombo" - write your e2e test...', function (done) {
